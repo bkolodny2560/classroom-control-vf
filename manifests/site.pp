@@ -56,4 +56,5 @@ notify { "Hello, my name is ${::hostname}": }
 #creates => '/etc/motd',
 #}
 include users
+include skeleton
 }
