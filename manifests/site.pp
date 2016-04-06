@@ -57,8 +57,8 @@ path => '/usr/bin:/usr/local/bin',
 creates => '/etc/motd',
 }
 
-include users
-include skeleton
+#include users
+#include skeleton
 
 host { 'testing.puppetlabs.vm':
 ensure => present,
