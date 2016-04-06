@@ -70,8 +70,8 @@ node 'bkolodny2560.puppetlabs.vm' {
   notify { 'test_message' :
     message => "Hello, my name is ${::hostname}",
   }
-  # include users
-  # include skeleton
+  include users
+  #include skeleton
 
 if $::virtual != 'physical' {
 $vmname = capitalize($::virtual)
