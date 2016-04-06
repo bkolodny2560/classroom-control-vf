@@ -75,6 +75,16 @@ node 'bkolodny2560.puppetlabs.vm' {
   # include skeleton
 }
 
+#node default {
+#  notify { "${::fqdn} has no node definition": }
+#}
+
 node default {
-  notify { "${::fqdn} has no node definition": }
+# This is where you can declare classes for all nodes.
+# Example:
+# class { 'my_class': }
+if $::virtual != 'physical' {
+$vmname = capitalize($::virtual)
+notify { "This is a ${vmname} virtual machine.": }
+}
 }
