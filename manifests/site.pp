@@ -39,11 +39,11 @@ File { backup => false }
 # specified in the console for that node.
 
 ## my first edit
-node default {
+#node default {
 # This is where you can declare classes for all nodes.
 # Example:
 # class { 'my_class': }
-notify { "Hello, my name is ${::hostname}": }
+#notify { "Hello, my name is ${::hostname}": }
 #file { '/etc/motd':
 # ensure => file,
 # owner => 'root',
@@ -52,10 +52,10 @@ notify { "Hello, my name is ${::hostname}": }
 # content => "Today I learned what it means to manage state using Puppet.\n",
 #}
 
-exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
-path => '/usr/bin:/usr/local/bin',
-creates => '/etc/motd',
-}
+#exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
+#path => '/usr/bin:/usr/local/bin',
+#creates => '/etc/motd',
+#}
 
 #include users
 #include skeleton
@@ -64,4 +64,17 @@ creates => '/etc/motd',
 #ensure => present,
 #ip => '127.0.0.1',
 #}
+#}
+
+node 'bkolodny2560.puppetlabs.vm' {
+  notify { 'test_message' :
+    message => "Hello, my name is ${::hostname}",
+  }
+
+  # include users
+  # include skeleton
+}
+
+node default {
+  notify { "${::fqdn} has no node definition": }
 }
