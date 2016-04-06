@@ -52,10 +52,10 @@ notify { "Hello, my name is ${::hostname}": }
 # content => "Today I learned what it means to manage state using Puppet.\n",
 #}
 
-exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
-path => '/usr/bin:/usr/local/bin',
-creates => '/etc/motd',
-}
+#exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
+#path => '/usr/bin:/usr/local/bin',
+#creates => '/etc/motd',
+#}
 
 include users
 include skeleton
