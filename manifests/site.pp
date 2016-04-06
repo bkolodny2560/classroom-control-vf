@@ -58,10 +58,10 @@ notify { "Hello, my name is ${::hostname}": }
 #}
 
 
-host { 'testing.puppetlabs.vm':
-ensure => present,
-ip => '127.0.0.1',
-}
+#host { 'testing.puppetlabs.vm':
+#ensure => present,
+#ip => '127.0.0.1',
+#}
 
 include users
 include skeleton
